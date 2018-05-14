@@ -29,6 +29,24 @@ int main ()
 		pv[i][0] = 0.0;
 	}
 
+
+	for (int i = 0; i < ran; i ++)
+	{
+		for (int j = 0; j < ran; j++)
+		{
+			if (x>=1.5 && x <= 3.5 && y > (3.0-h) && y < (3.0+h))
+			{
+				pv[i][j] = v0/2;
+			}
+			else if (x>=1.5 && x<=3.5 && y>(2.0-h) && y<(2.0+h))
+			{
+				pv[i][j] = -v0/2;
+			}
+			y += h;
+		}
+		x += h;
+	}
+
 	for (int k = 0; k < 1000; k++)
 	{
 
