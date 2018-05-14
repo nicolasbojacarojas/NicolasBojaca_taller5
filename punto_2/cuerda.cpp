@@ -5,7 +5,7 @@ int main()
 {
 	double x = 0;
 	double t = 0;
-	double dx = 4;
+	double dx = 10;
 	double dt = 1;
 	int L = 100;
 	double t_min = 0;
@@ -30,8 +30,9 @@ int main()
 			uv[i] = fini2*(1-(x/L));
 		}
 		x += dx;
-		cout << x << " " << " " << t << " " << uv[i] << endl;
+		cout << uv[i] << " " ;
 	}
+	cout << endl;
 	t += dt;
 	x = 0;
 	for (int i = 0; i < n; i++)
@@ -60,7 +61,7 @@ int main()
 				un[i] = 0;
 			}
 			x = i*dx;
-			cout << x << " " << " " << t << " " << uv[i] << endl;
+			cout <<uv[i] << " ";
 		}
 		for (int i = 0; i < n; i ++)
 		{
@@ -68,6 +69,7 @@ int main()
 			up[i] = un[i];
 		}
 		t += dt;
+		cout<<endl;
 	}
 
 	return 0;

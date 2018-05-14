@@ -1,19 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-
 data = np.loadtxt('data.txt')
-fig, ax = plt.subplots()
-x = data[:, 1]
-y = data[:, 2]
+fig = plt.figure()
+ax = plt.axes(xlim=(0, 100), ylim=(-1, 1))
+line, = ax.plot([], [], lw=2)
 
-line, = ax.plot(x, y)	
-def animate(i):
-    line.set_ydata(y) 
+def init():
+    line.set_data([],[]) 
     return line,
     
-def init():
-    line.set_ydata(np.ma.array(x, mask=True))
+def animate(i):
+    x = np.linspace(0, 100, len(data[0]))
+    line.set_data(x, data[i])
     return line,
 
 plt.ylim(-1,1)
